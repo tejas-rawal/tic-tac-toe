@@ -29,6 +29,17 @@ var checkForWinner = function () {
     || spaces[3] === spaces[4] && spaces[4] === spaces[5]
     || spaces[6] === spaces[7] && spaces[7] === spaces[8]
     // TODO: Check for rest of game winning cases
+  ) || 
+    
+    ( spaces[0] === spaces[3] && spaces[3] === spaces[6]
+    || spaces[1] === spaces[4] && spaces[4] === spaces[7]
+    || spaces[2] === spaces[5] && spaces[5] === spaces[8]
+ 
+  ) || 
+   
+    (spaces[0] === spaces[4] && spaces[4] === spaces[8]
+    || spaces[2] === spaces[4] && spaces[4] === spaces[6]
+  
   )
   {
     console.log('somebody won');
