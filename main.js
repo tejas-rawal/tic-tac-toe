@@ -58,28 +58,38 @@ $(document).on('click', '#board .space', function (e) {
     // Marks the space with the current player's name
     // TODO: Don't mark it unless the space is blank
   
-    if (spaces[spaceNum].toString() === 'NaN') {
+    if (spaces[spaceNum].toString() === 'NaN') 
+    {
 
       spaces[spaceNum] = currentPlayer;
 
       // Adds a class to elem so css can take care of the visuals  
       $('#board .space:eq(' + spaceNum + ')').addClass(currentPlayer);
 
-        checkForWinner();
-        setNextTurn();
+      checkForWinner();
+      setNextTurn();
     }
     else {
       alert("Space # " + spaceNum + " is already taken!");
     }
   }
   else {
-    alert("The game is over1")
+    alert("The game is over")
   }
 });
 
 $(document).on('game-win', function (e, winner) {
   // TODO: Alert who won the game
   alert("Congratulations " + winner + ", you win!");
+});
+
+$(document).on('click', '#reset', function() {
+  for(var i = 0; i < spaces.length; i++) {
+    spaces[i] = NaN;
+    winner_confirmed = false;
+    $('#board .space:eq(' + i + ')').removeClass(player1);
+    $('#board .space:eq(' + i + ')').removeClass(player2);
+  }
 });
 
 // Start the game
